@@ -33,7 +33,7 @@ class FuseStatusCommand extends Command
 
         $rows = [];
         foreach ($services as $service) {
-            $breaker = new CircuitBreaker($service);
+            $breaker = new CircuitBreaker((string) $service);
             $stats = $breaker->getStats();
 
             $state = match (true) {
